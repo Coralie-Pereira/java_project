@@ -1,10 +1,10 @@
-package com.example.java_project_service;
+package com.example.java_project.service;
 
 import java.util.List;
 import java.util.Random;
 
-import com.example.java_project_model.Quote;
-import com.example.java_project_repository.QuoteRepository;
+import com.example.java_project.model.Quote;
+import com.example.java_project.repository.QuoteRepository;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.java_project_model;
+package com.example.java_project.model;
 
 
 import jakarta.persistence.Entity;
