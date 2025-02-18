@@ -1,0 +1,9 @@
+<span th:text="${listeAAfficher}"></span>
+<div th:each="data:${listeAAfficher}">
+	<p>
+		<span th:text="${data.user.name}"/>
+	</p>
+</div>
+
+
+<a href="/form" th:text="retour">
