@@ -17,8 +17,8 @@ private final QuoteService quoteService;
 	}
 	
 	@GetMapping("/quote")
-	public Quote hello() {
-		return quoteService.quoteRandom();
+	public String hello() {
+		return quoteService.quoteRandom().getContent();
 }
 			
 }

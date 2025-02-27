@@ -12,7 +12,7 @@ public class ApiService {
     }
 
     public String getDataFromApi() {
-        String url = "http://localhost:8081/"; 
+        String url = "http://localhost:8081/quote"; 
         return restTemplate.getForObject(url, String.class);
     }
 }

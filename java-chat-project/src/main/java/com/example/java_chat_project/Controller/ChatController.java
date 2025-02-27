@@ -34,7 +34,7 @@ public class ChatController {
 		  	
 		  //  User user = chatService.findOrCreateUser(userName);
 		  if ( lastSavedUser != null) {
-			  System.out.println("heelo" +lastSavedUser.getMessages());
+			 
 			    model.addAttribute("messageList", chatService.getListMessage(lastSavedUser));
 		  } else {
 			    model.addAttribute("messageList", new ArrayList<>()); 
