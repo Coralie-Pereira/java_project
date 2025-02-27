@@ -30,54 +30,46 @@ public class ChatController {
 	  private User lastSavedUser;
 	  
 	  @GetMapping("/formMessage")
+	  
 	    public String getFormMessage( Model model) {
 		  	
 		  //  User user = chatService.findOrCreateUser(userName);
 		  if ( lastSavedUser != null) {
 			 
 			    model.addAttribute("messageList", chatService.getListMessage(lastSavedUser));
-		  } else {
-			    model.addAttribute("messageList", new ArrayList<>()); 
-		  }
-	        return "formMessage";
+			    return "formMessage";
+		  } 
+	        return "user";
+	    }
+	  
+	  @GetMapping("/")
+	  
+	    public String getRedirection( Model model) {
+		 lastSavedUser = null;
+	       return "user";
+		  
 	    }
 
-	    @PostMapping("/submitMessage")
+	    @PostMapping("/submitUser")
 	    public String handleMessageFormSubmission(
+	    		
 	            @RequestParam("userName") String userName,
-	            @RequestParam("message") String message,
 	            Model model) {
 
-	        LocalDateTime date = LocalDateTime.now();
 	        User user = chatService.findOrCreateUser(userName);
-	        Message messageObj = new Message(message, date, user,"");
-	        chatService.saveMessage(messageObj);
+	        lastSavedUser = user;
 
-	        model.addAttribute("userName", userName);
-	        model.addAttribute("message", message);
-	        model.addAttribute("date", date);
-
-	        List<Message> messageList = chatService.getAllMessages();
-	        model.addAttribute("messageList", messageList);
-
-	        return "allMessages";
+	        return "redirect:/formMessage";
 	    }
 
 	    @PostMapping("/chatPrincipal")
 	    public String routeMessageChatPrincipal(
-	            @RequestParam("userName") String userName,
 	            @RequestParam("message") String message,
 	            Model model) {
 
 	        LocalDateTime date = LocalDateTime.now();
-	        User user = chatService.findOrCreateUser(userName);
-	        Message messageObj = new Message(message, date, user,apiService.getDataFromApi());
+	        Message messageObj = new Message(message, date, lastSavedUser,apiService.getDataFromApi());
 	        chatService.saveMessage(messageObj);
-
-	        lastSavedUser = chatService.getMessageUser(user);
-	        model.addAttribute("userName", userName);
-	        model.addAttribute("message", message);
-	        model.addAttribute("date", date);
 
 	     //   Optional<User> messageList = chatService.getMessageUser(user);
 	   

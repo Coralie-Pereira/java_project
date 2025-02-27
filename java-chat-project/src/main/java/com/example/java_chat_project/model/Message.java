@@ -58,7 +58,7 @@ public class Message {
     	this.reponse = reponse;
     }
     public String getReponse() {
-        return content;
+        return reponse;
     }
 
 }

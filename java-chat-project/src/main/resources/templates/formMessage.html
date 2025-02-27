@@ -6,9 +6,8 @@
 </head>
 <body>
     <h2>Formulaire d'Inscription</h2>
+	<a href="/">Retour</a>
     <form th:action="@{/chatPrincipal}" method="post">
-        <label for="userName">Nom de l'utilisateur :</label><br>
-        <input type="text" id="userName" name="userName" required><br><br>
 
         <label for="message">Message :</label><br>
         <input type="text" id="message" name="message" required><br><br>
@@ -24,5 +23,6 @@
 				   <p><strong>Réponse :</strong> <span th:text="${message.reponse}"></span></p>
 			       <hr>
 	</div>
+
 </body>
 </html>
