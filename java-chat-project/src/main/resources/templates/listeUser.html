@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Simple</title>
+</head>
+<body>
+    <h2>Formulaire d'Inscription</h2>
+	<a href="/">Retour</a>
+
+	<div th:each="user : ${userListe}">
+		<span th:text="${user.name}">
+			
+		</span>
+			 <div th:each="message : ${user.messages}">
+			       <p><strong>Date :</strong> <span th:text="${message.date}"></span></p>
+			       <p><strong>Message :</strong> <span th:text="${message.content}"></span></p>
+				   <p><strong>Réponse :</strong> <span th:text="${message.reponse}"></span></p>
+			       <hr>
+			</div>     
+	</div>
+	
+	
+
+</body>
+</html>

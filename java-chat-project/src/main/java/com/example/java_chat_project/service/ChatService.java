@@ -42,5 +42,9 @@ public class ChatService {
     public List<Message> getListMessage(User user){
     	return messageRepository.findByUser(user);
     }
+    
+    public List<User> getListUser(){
+    	return userRepository.findByMessagesIsNotNull();
+    }
 
 }

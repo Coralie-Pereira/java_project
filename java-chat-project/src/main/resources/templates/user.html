@@ -7,12 +7,13 @@
 <body>
     <h2>Formulaire d'Inscription</h2>
     <form th:action="@{/submitUser}" method="post">
+		
         <label for="userName">Nom de l'utilisateur :</label><br>
         <input type="text" id="userName" name="userName" required><br><br>
 	
 
         <input type="submit" value="Soumettre">
     </form>
-
+<a href="/ListeUser">Liste User</a>
 </body>
 </html>

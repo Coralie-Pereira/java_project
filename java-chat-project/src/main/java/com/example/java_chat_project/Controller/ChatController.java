@@ -49,6 +49,13 @@ public class ChatController {
 	       return "user";
 		  
 	    }
+	  @GetMapping("/ListeUser")
+	  
+	    public String getListeUser( Model model) {
+		  model.addAttribute("userListe", chatService.getListUser());
+	       return "listeUser";
+		  
+	    }
 
 	    @PostMapping("/submitUser")
 	    public String handleMessageFormSubmission(
